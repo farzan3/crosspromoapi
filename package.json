@@ -8,9 +8,6 @@
     "type": "git",
     "url": "https://github.com/scotch-io/node-web-scraper"
   },
-  "engines": {
-    "node": "10.3.0"
-  }
   "dependencies": {
     "express": "latest",
     "request": "latest",
