@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 app.get('/scrape/:id', function(req, res){
  
   var id = req.params.id;
-  url = 'http://mishnat.com/MishNat/appInfoApi.php?packageName='+id;
+  url = 'http://business.splashstudio.org/appInfoApi.php?packageName='+id;
 
   request({ url: url,json: true}, function(error, response, body){
     if(!error){
