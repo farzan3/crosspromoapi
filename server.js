@@ -27,6 +27,31 @@ app.get('/scrape/:id', function(req, res){
   })
 })
 
+app.get('/selfPromo/:id', function(req, res){
+ 
+  var id = req.params.id;
+  url = 'http://business.splashstudio.org/appIconInfo.php?packageName='+id;
+
+  request({ url: url,json: true}, function(error, response, body){
+    if(!error){
+		
+	
+      
+
+	  var ranking="None";
+      
+      var json = { pakagenname : "None", url : "None" , iconurl :"None"};
+
+	    json.pakagenname=body.Package;
+		json.url=body.HeaderImage;
+		json.iconurl=body.icon;
+	
+	}
+
+    res.send(json)
+  })
+})
+
 app.listen(port)
   console.log('Server started on port', port);
 exports = module.exports = app;
