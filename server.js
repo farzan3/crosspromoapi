@@ -52,6 +52,23 @@ app.get('/selfPromo/:id', function(req, res){
   })
 })
 
+app.get('/inapp/:id', function(req, res){
+ 
+  var id = req.params.id;
+  url = 'http://business.splashstudio.org/appInfoApi_3.php?packageName='+id;
+
+  request({ url: url,json: true}, function(error, response, body){
+    if(!error){
+		
+	    var json =body;
+		
+
+	}
+
+    res.send(json)
+  })
+})
+
 app.listen(port)
   console.log('Server started on port', port);
 exports = module.exports = app;
