@@ -25,7 +25,7 @@ app.get('/scrape/:id', function(req, res){
 
     // res.send(json)
   // })
-   res.send( JSON.parse('{"Package":"com.us.military.fps.sniper.counter.terrorist.border","HeaderImage":"https:\/\/lh3.googleusercontent.com\/5FURIVb886g4Fubm_Ci8lQL4FR08GSNa-ggvNSqJVgVKyc-TWkjiMNN2cIPp4Tewxoo"}'));
+  res.send( JSON.parse('{"pakagenname":"com.us.military.fps.sniper.counter.terrorist.border","url":"https:\/\/lh3.googleusercontent.com\/5FURIVb886g4Fubm_Ci8lQL4FR08GSNa-ggvNSqJVgVKyc-TWkjiMNN2cIPp4Tewxoo","bit":"1"}'));
 })
 
 app.get('/selfPromo/:id', function(req, res){
