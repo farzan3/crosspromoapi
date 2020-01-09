@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 const megaURL='http://business.splashstudio.org';
 const Duration=300;
 const api1="api1";
+const api11="api11";
 const api2="api2";
 const api3="api3";
 
@@ -69,6 +70,48 @@ app.get('/scrape/:id', function(req, res){
 
 })
 
+app.get('/scrapee/:id', function(req, res){
+ 
+   
+  var id = req.params.id;
+  url = megaURL+'/crossonead.php?packageName='+id;
+ let key = '__express__' + api11+id;
+ let cachedBody = mcache.get(key)
+ var json = { pakagenname : "None", header : "None",icon : "None",name : "None" , bit :0};
+  
+  if (cachedBody) {
+      
+	 json.pakagenname=cachedBody.Package;
+	 json.url=cachedBody.HeaderImage;
+	 json.bit=1;
+	 res.send(json)
+	 console.log("cached");
+      return
+    }else{
+
+  request({ url: url,json: true}, function(error, response, body){
+    if(!error){
+		
+	
+      
+
+	  var ranking="None";
+      
+         mcache.put(key, body, Duration * 1000);
+
+	    json.pakagenname=body.Package;
+	     json.header=body.HeaderImage;
+	     json.icon=body.icon;
+	    json.name=body.name;
+		json.bit=1;
+	 console.log("web");
+	}
+
+    res.send(json)
+  })
+}
+
+})
 app.get('/selfPromo/:id', function(req, res){
  
   var id = req.params.id;
