@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 const megaURL='http://business.splashstudio.org';
 const Duration=300;
 const api1="api1";
-const api11="api11";
+const api11="api4";
 const api2="api2";
 const api3="api3";
 
@@ -81,9 +81,14 @@ app.get('/scrapee/:id', function(req, res){
   
   if (cachedBody) {
       
-	 json.pakagenname=cachedBody.Package;
-	 json.url=cachedBody.HeaderImage;
-	 json.bit=1;
+	 
+	  
+	  json.pakagenname=cachedBody.Package;
+	     json.header=cachedBody.HeaderImage;
+	     json.icon=cachedBody.icon;
+	    json.name=cachedBody.name;
+		json.bit=1;
+	  
 	 res.send(json)
 	 console.log("cached");
       return
